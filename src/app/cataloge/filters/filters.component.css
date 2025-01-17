@@ -1,0 +1,9 @@
+#priceRange::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) var(--value, 0%), #dee2e6 var(--value, 0%), #dee2e6 100%);
+}
+
+@media (min-width: 768px) {
+  .filters-sidebar {
+    height: 100vh;
+  }
+}

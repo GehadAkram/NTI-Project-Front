@@ -1,0 +1,32 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4"><b>My Wishlist</b></h1>
+
+      <div *ngIf="wishlist.length == 0" class="text-center">
+        <h3 >No items in your wishlist</h3>
+        <a routerLink="/cataloge" class="btn btn-primary">Go Shopping</a>
+      </div>
+      <div *ngFor="let product of wishlist">
+        <div class="card mb-3">
+          <div class="row">
+            <div class="col-3" (click)="viewProduct(product.id)">
+              <img [src]="product.img" class="card-img" alt="{{ product.name }}" style="height: 150px; object-fit: contain;">
+            </div>
+            <div class="col-6">
+              <div class="card-body" (click)="viewProduct(product.id)">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text"><small class="text-muted">Price: ${{ product.price }}</small></p>
+              </div>
+            </div>
+            <div class="col-3 text-center">
+                <button class="btn btn-primary btn-sm" (click)="addToCart(product)"><i class="bi bi-bag-fill me-2"></i> Add to Cart</button>
+                <button class="btn btn-remove btn-sm" (click)="removeFromWishlist(product)"><i class="bi bi-trash-fill me-1"></i> Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.btn-remove {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: darkgray;
+  color: white;
+  font-size: small;
+}
+
+.btn-remove:hover, .btn-remove:active {
+  background-color: dimgray;
+  color: white;
+}

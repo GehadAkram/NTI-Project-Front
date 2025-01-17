@@ -1,0 +1,48 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel"
+  style="width: 550px;">
+  <div class="offcanvas-header p-3 bg-light">
+    <h5 class="offcanvas-title" id="cartOffcanvasLabel">Shopping Cart</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div *ngIf="cart.length == 0" class="text-center">
+      <h3 >No items in your cart</h3>
+      <a routerLink="/cataloge" class="btn btn-primary">Go Shopping</a>
+    </div>
+    <div *ngFor="let cartItem of cart; let i = index">
+      <div class="card mb-3">
+        <div class="row">
+          <div class="col-4">
+            <img [src]="cartItem.product.image" class="card-img" alt="{{ cartItem.product.name }}" 
+            style="height: 150px; object-fit: contain;" (click)="viewProduct(cartItem.product.id)">
+          </div>
+          <div class="col-6">
+            <div class="card-body">
+              <h5 class="card-title">{{ cartItem.product.name }}</h5>
+              <p class="card-text"><small class="text-muted">${{ cartItem.product.price }}</small></p>
+              <div class="input-group mb-3 d-flex align-items-center">
+                <button class="btn btn-outline-secondary" type="button"
+                  (click)="decreaseQuantity(i)">-</button>
+                <input type="text" class="form-control text-center" [value]="cartItem.quantity" readonly>
+                <button class="btn btn-outline-secondary" type="button"
+                  (click)="increaseQuantity(i)">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-danger btn-sm text-center" (click)="removeFromCart(cartItem.product)"><i
+                class="bi bi-trash-fill me-1"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-footer p-3 bg-light">
+    <div class="d-flex justify-content-between mx-3 my-1">
+      <p>Subotal: </p>
+      <p>${{ subtotal }}</p>
+    </div>
+    <a routerLink="checkout" class="btn btn-primary w-100 mx-1 my-1">Checkout</a>
+    <a routerLink="orderHistory" class="btn btn-outline-primary w-100 mx-1 my-1">Previous Orders</a>
+  </div>
+</div>

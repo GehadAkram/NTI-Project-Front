@@ -1,0 +1,33 @@
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.active {
+  color: white !important;
+  font-weight: bold;
+}
+
+.nav-link:hover, .nav-link.active:hover{
+  color: var(--secondary-color) !important; 
+}
+
+.navbar-brand {
+  font-family: var(--title-font);
+  font-weight: bold;
+  color: white;
+}
+
+.searchNav {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid white;
+}
+
+.searchNav:focus {
+  border-bottom: 2px solid var(--secondary-color);
+}

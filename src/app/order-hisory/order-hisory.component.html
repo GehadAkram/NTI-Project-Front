@@ -1,0 +1,51 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4 text-center"><b>My Orders</b></h1>
+
+      <h2 class="mb-4">Current Orders</h2>
+      <div *ngFor="let order of orders">
+        <div *ngIf="order.state !== 'delivered' && order.state !== 'cancelled'">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title">Order #{{ order.id }}</h5>
+                <p class="card-text" style="color: darkblue;"><b>Status: {{ order.state }}</b></p>
+              </div>
+              <p class="card-text">Total: ${{ order.total }}</p>
+              <p class="card-text">Shipping Address: {{ order.shippingAddress }}</p>
+                <div class="d-flex flex-wrap">
+                <div *ngFor="let product of order.products" class="p-2">
+                  <img [src]="product.product.image" alt="product" style="height: 80px; object-fit: contain;">
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-4" style="border-bottom: 1px solid lightgray;"></div>
+      <h2 class="mb-4">Previous Orders</h2>
+      <div *ngFor="let order of orders">
+        <div *ngIf="order.state == 'delivered' || order.state == 'cancelled'">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title">Order #{{ order.id }}</h5>
+                <p class="card-text" [ngStyle]="{'color': order.state === 'delivered' ? 'darkgreen' : 'darkred'}"><b>Status: {{ order.state }}</b></p>
+              </div>
+              <p class="card-text">Total: ${{ order.total }}</p>
+              <p class="card-text">Shipping Address: {{ order.shippingAddress }}</p>
+                <div class="d-flex flex-wrap">
+                <div *ngFor="let product of order.products" class="p-2">
+                  <img [src]="product.product.image" alt="product" style="height: 80px; object-fit: contain;">
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

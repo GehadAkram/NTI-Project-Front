@@ -1,0 +1,46 @@
+<nav class="navbar fixed-top navbar-expand-lg p-3 ">
+  <div class="container-fluid">
+    <span class="navbar-brand">& myBrand</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cataloge" routerLinkActive="active">Cataloge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="policies" routerLinkActive="active">Our Policies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" fragment="footer">Contact Us</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form class="d-flex align-items-center ms-2" id="search-form">
+            <i class="bi bi-search"></i>
+            <input class="form-control me-2 searchNav" type="search" placeholder="Search" aria-label="Search"
+              style="background: transparent;">
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" routerLinkActive="active"><i class="bi bi-person-circle"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="wishlist" routerLinkActive="active"><i class="bi bi-heart"></i></a>
+        </li>
+        <button class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+          <i class="bi bi-bag"></i>
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<app-cart></app-cart>

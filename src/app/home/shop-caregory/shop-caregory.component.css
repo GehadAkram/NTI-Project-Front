@@ -1,0 +1,44 @@
+.bg-image {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.category-image {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.bg-image:hover .dark-overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: relative; 
+  z-index: 2; 
+}
+
+#category-container a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#category-container a:hover {
+  color: var(--secondary-color);
+}

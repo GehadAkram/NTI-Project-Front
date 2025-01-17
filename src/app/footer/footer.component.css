@@ -1,0 +1,23 @@
+footer{
+  background-color: var(--primary-color);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+i:hover {
+  color: var(--secondary-color);
+}
+
+.form-control {
+margin: 10px;
+margin-right: 0;
+}
+

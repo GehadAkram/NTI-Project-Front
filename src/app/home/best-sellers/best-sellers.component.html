@@ -1,0 +1,15 @@
+<section id="best-sellers" class="py-5">
+  <div class="container">
+    <div class="row text-center mb-4">
+      <div class="col">
+        <h2 class="display-4"><b>Best Sellers</b></h2>
+        <p class="lead">Check out our most popular products!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let product of products" class="col-6 col-md-4">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>

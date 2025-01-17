@@ -1,0 +1,79 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4 text-center"><b>Edit Profile</b></h1>
+      <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name <span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" placeholder="Your Name" formControlName="name">
+          <div *ngIf="profileForm.get('name')!.invalid && profileForm.get('name')!.touched" class="text-danger my-2">
+            <span *ngIf="profileForm.get('name')!.errors?.['required']">Name is required </span>
+            <span *ngIf="profileForm.get('name')!.errors?.['minlength']">Name must be at least 2 characters</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">Email address <span class="text-danger">*</span> </label>
+          <input type="email" [disabled]="true" class="form-control" placeholder="something@email.com" formControlName="email">
+          <div *ngIf="profileForm.get('email')!.invalid && profileForm.get('email')!.touched" class="text-danger my-2">
+            <span *ngIf="profileForm.get('email')!.errors?.['required']">Email is required </span>
+            <span *ngIf="profileForm.get('email')!.errors?.['email']">Invalid email format</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" placeholder="Your Address" formControlName="address">
+        </div>
+
+        <div class="mb-3">
+          <label for="signupPhone" class="form-label">Phone Number <span class="text-danger">*</span> </label>
+          <input type="tel" class="form-control" placeholder="+20 123 456 7890" formControlName="phone">
+          <div *ngIf="profileForm.get('phone')!.invalid && profileForm.get('phone')!.touched" class="text-danger my-2">
+            <span *ngIf="profileForm.get('phone')!.errors?.['required']">Phone number is required </span>
+            <span *ngIf="profileForm.get('phone')!.errors?.['minlength']">Phone number must be at least 5 digits </span>
+            <span *ngIf="profileForm.get('phone')!.errors?.['pattern']">Phone number must be numbers only</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">Old Password <span class="text-danger">*</span> </label>
+          <input type="password" class="form-control" placeholder="***********" formControlName="password">
+          <div *ngIf="profileForm.get('password')!.invalid && profileForm.get('password')!.touched"
+            class="text-danger my-2">
+            <span *ngIf="profileForm.get('password')!.errors?.['required']">Password is required </span>
+            <span *ngIf="profileForm.get('password')!.errors?.['minlength']">Password must be at least 8 characters </span>
+            <span *ngIf="profileForm.get('password')!.errors?.['maxlength']">Password must be at most 16 characters </span>
+            <span *ngIf="profileForm.get('password')!.errors?.['pattern']">Password must contain uppercase, lowecase and numbers</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">New Password</label>
+          <input type="password" class="form-control" placeholder="***********" formControlName="newPassword">
+          <div *ngIf="profileForm.get('password')!.invalid && profileForm.get('password')!.touched"
+            class="text-danger my-2">
+            <span *ngIf="profileForm.get('password')!.errors?.['minlength']">Password must be at least 8 characters </span>
+            <span *ngIf="profileForm.get('password')!.errors?.['maxlength']">Password must be at most 16 characters </span>
+            <span *ngIf="profileForm.get('password')!.errors?.['pattern']">Password must contain uppercase, lowecase and numbers</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm New Password 
+            <span *ngIf="profileForm.get('newPassword')!.dirty" class="text-danger">*</span> 
+          </label>
+          <input type="password" class="form-control" placeholder="***********" formControlName="confirmPassword">
+          <div *ngIf="profileForm.get('confirmPassword')!.invalid && profileForm.get('confirmPassword')!.touched"
+            class="text-danger my-2">
+            <span *ngIf="profileForm.get('confirmPassword')!.errors?.['required']">Confirm Password is required </span>
+            <span *ngIf="profileForm.get('confirmPassword')!.errors?.['matched']">Passwords must match</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+      </form>
+
+    </div>
+  </div>
+</div>

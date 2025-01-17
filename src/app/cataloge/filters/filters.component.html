@@ -1,0 +1,42 @@
+<div class="filters-sidebar p-3 py-lg-5 bg-light">
+  <h4 class="mb-4">Filters</h4>
+  <!-- SuperCategory Filter -->
+  <div class="mb-4">
+    <h6 class="secondary-color">Shop for</h6>
+    <div class="row">
+      <div *ngFor="let superCategory of superCategories" class="col-6">
+        <div class="form-check form-check-inline primary-color me-0">
+          <input type="radio" id="{{superCategory.name}}" value="{{superCategory.name}}"
+            class="form-check-input primary-color">
+          <label for="{{superCategory.name}}" class="form-check-label secondary-color">{{superCategory.name}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Category Filter -->
+  <div class="mb-4">
+    <h6 class="secondary-color">Category</h6>
+    <select class="form-select primary-color">
+      <option value="" selected>All</option>
+      <option *ngFor="let category of categories" [value]="category.name">
+        {{category.name}}
+      </option>
+    </select>
+  </div>
+  <!-- Price Range Filter -->
+  <div class="mb-4">
+    <h6>Price Range: <span id="priceRangeValue">0-0</span></h6>
+    <input type="range" class="form-range  primary-color" id="priceRange" min="0" max="5000" value="0"
+      (input)="updatePriceRange()">
+  </div>
+  <!-- In Stock Filter -->
+  <div class="mb-4 form-check  primary-color">
+    <input type="checkbox" class="form-check-input" id="inStock">
+    <label class="form-check-label" for="inStock">In Stock</label>
+  </div>
+  <!-- Best Seller Filter -->
+  <div class="mb-4 form-check  primary-color">
+    <input type="checkbox" class="form-check-input" id="bestSeller">
+    <label class="form-check-label" for="bestSeller">Best Seller</label>
+  </div>
+</div>

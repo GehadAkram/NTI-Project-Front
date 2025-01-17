@@ -1,1 +1,150 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #3AA6B9;
+  --secondary-color: #FFD0D0;
+  --danger-color: #FF9EAA;
+  --success-color: #C1ECE4;
+  --title-font: 'Playfair Display', serif;
+  --content-font: 'DM Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--content-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--title-font);
+}
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  color: rgb(42, 42, 42);
+}
+
+.btn-primary:active {
+  background-color: var(--danger-color) !important;
+}
+
+.btn-secondary {
+  background-color: var(--danger-color);
+  color:white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-outline-primary {
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--danger-color);
+  color: black;
+}
+
+.btn-outline-primary:active {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--danger-color) !important;
+  color: black !important;
+} 
+
+.btn-outline-secondary {
+  border-radius: 50px;
+  border: 2px solid var(--danger-color);
+  color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+  border-color: var(--danger-color);
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-outline-secondary:active {
+  background-color: var(--danger-color) !important;
+  border-color: var(--danger-color) !important;
+  color: white;
+} 
+
+*{
+  box-shadow: none !important;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, textarea:focus, .form-select:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+
+/* Radio buttons */
+input[type="radio"].primary-color:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+input[type="radio"].primary-color:checked::before {
+  background-color: var(--primary-color);
+}
+
+/* Checkboxes */
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Range slider */
+input[type="range"].primary-color {
+  width: 100%;
+  height: 8px;
+  background: #dee2e6;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+input[type="range"].primary-color::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  cursor: pointer;
+  border-radius: 50%;
+  border-color: white !important;
+}
+
+input[type="range"].primary-color::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  cursor: pointer;
+  border-radius: 50%;
+  border-color: white !important;
+}

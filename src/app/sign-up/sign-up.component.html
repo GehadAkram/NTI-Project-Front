@@ -1,0 +1,74 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-7 d-flex flex-column align-items-end position-relative d-none d-lg-block">
+      <img src="28041.jpg" class="img-fluid rounded-4 mb-3" alt="shopping bags" width="100%">
+      <h3 class="position-absolute text-white display-2 text-center" style="top: 10%; right: 5%;">Join Us</h3>
+    </div>
+    <div class="col-lg-5">
+      <h2 class="fw-bold mb-4">Sign Up</h2>
+
+      <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name <span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" placeholder="Your Name" formControlName="name">
+          <div *ngIf="signupForm.get('name')!.invalid && signupForm.get('name')!.touched" class="text-danger my-2">
+            <span *ngIf="signupForm.get('name')!.errors?.['required']">Name is required </span>
+            <span *ngIf="signupForm.get('name')!.errors?.['minlength']">Name must be at least 2 characters</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">Email address <span class="text-danger">*</span> </label>
+          <input type="email" class="form-control" placeholder="something@email.com" formControlName="email">
+          <div *ngIf="signupForm.get('email')!.invalid && signupForm.get('email')!.touched" class="text-danger my-2">
+            <span *ngIf="signupForm.get('email')!.errors?.['required']">Email is required </span>
+            <span *ngIf="signupForm.get('email')!.errors?.['email']">Invalid email format</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">Password <span class="text-danger">*</span> </label>
+          <input type="password" class="form-control" placeholder="***********" formControlName="password">
+          <div *ngIf="signupForm.get('password')!.invalid && signupForm.get('password')!.touched"
+            class="text-danger my-2">
+            <span *ngIf="signupForm.get('password')!.errors?.['required']">Password is required </span>
+            <span *ngIf="signupForm.get('password')!.errors?.['minlength']">Password must be at least 8 characters </span>
+            <span *ngIf="signupForm.get('password')!.errors?.['maxlength']">Password must be at most 16 characters </span>
+            <span *ngIf="signupForm.get('password')!.errors?.['weakpassword']">Password must contain uppercase, lowecase and numbers</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span> </label>
+          <input type="password" class="form-control" placeholder="***********" formControlName="confirmPassword">
+          <div *ngIf="signupForm.get('confirmPassword')!.invalid && signupForm.get('confirmPassword')!.touched"
+            class="text-danger my-2">
+            <span *ngIf="signupForm.get('confirmPassword')!.errors?.['required']">Confirm Password is required </span>
+            <span *ngIf="signupForm.get('confirmPassword')!.errors?.['mismatchpassword']">Passwords must match</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="signupAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" placeholder="Your Address" formControlName="address">
+        </div>
+
+        <div class="mb-3">
+          <label for="signupPhone" class="form-label">Phone Number <span class="text-danger">*</span> </label>
+          <input type="tel" class="form-control" placeholder="+20 123 456 7890" formControlName="phone">
+          <div *ngIf="signupForm.get('phone')!.invalid && signupForm.get('phone')!.touched" class="text-danger my-2">
+            <span *ngIf="signupForm.get('phone')!.errors?.['required']">Phone number is required </span>
+            <span *ngIf="signupForm.get('phone')!.errors?.['minlength']">Phone number must be at least 5 digits </span>
+            <span *ngIf="signupForm.get('phone')!.errors?.['pattern']">Phone number must be numbers only</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a [routerLink]="['/login']" class="my-2">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+</div>
