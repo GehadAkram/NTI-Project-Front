@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IProduct } from '../interfaces/iproduct';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../interfaces/product';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-cataloge',
@@ -8,10 +9,16 @@ import { IProduct } from '../interfaces/iproduct';
   templateUrl: './cataloge.component.html',
   styleUrl: './cataloge.component.css'
 })
-export class CatalogeComponent {
-  products: IProduct[] = [ 
-    {id: '1', name: 'Product 1', price: 500, image: 'product1.png'}, 
-    {id: '2', name: 'Product 2', price: 200, image: 'product2.png'},
-    {id: '3', name: 'Product 3', price: 300, image: 'product3.png'}, 
-  ];
+export class CatalogeComponent implements OnInit{
+
+  constructor (private _productS: ProductsService) {}
+    
+    products!:IProduct[];
+    staticUrl ='';
+  
+    ngOnInit(): void {
+      this._productS.getAllProducts().subscribe( data => {
+        this.products = data} );
+      this.staticUrl = this._productS.staticFilesUrl;
+    }
 }

@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { OrderHisoryComponent } from './order-hisory/order-hisory.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -22,7 +23,7 @@ const routes: Routes = [
     {path: 'forgot-password', component: ForgotPasswordComponent}
   ]},
   {path: 'signup', component: SignUpComponent},
-  {path: 'wishlist', component: WishlistComponent},
+  {path: 'wishlist', component: WishlistComponent, canActivate:[AuthGuard]},
   {path: 'cataloge', component: CatalogeComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'profile', component: ProfileComponent},

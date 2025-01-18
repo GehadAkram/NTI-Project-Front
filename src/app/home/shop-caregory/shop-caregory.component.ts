@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../services/category.service';
+import { SupercategoryService } from '../../services/supercategory.service';
+import { ICategory } from '../../interfaces/category';
+import { ISuperCategory } from '../../interfaces/super-category';
 
 @Component({
   selector: 'app-shop-caregory',
@@ -7,13 +11,22 @@ import { Component } from '@angular/core';
   templateUrl: './shop-caregory.component.html',
   styleUrl: './shop-caregory.component.css',
 })
-export class ShopCaregoryComponent {
-  categories = [
-    { name: 'Shirts', image: 'shirts.jpg' },
-    { name: 'Pants', image: 'pants.jpeg' },
-    { name: 'Dresses', image: 'dresses.webp' },
-    { name: 'Jeans', image: 'jeans.webp' },
-  ];
+export class ShopCaregoryComponent implements OnInit, AfterViewInit {
+  constructor (private _categoryS:CategoryService, private _superCategoryS:SupercategoryService) {}
+
+  ngOnInit(): void {
+    this._categoryS.getCategory().subscribe ( data => {
+      this.categories= data;
+    });
+    this._superCategoryS.getSuperCategory().subscribe ( data => {
+      this.supercategories= data;
+    });
+    this.staticUrl = this._categoryS.staticFilesUrl;
+  }
+
+  categories!: ICategory[];
+  supercategories!: ISuperCategory[];
+  staticUrl ='';
   
   ngAfterViewInit() {
     const scrollLeft = document.getElementById('scroll-left');

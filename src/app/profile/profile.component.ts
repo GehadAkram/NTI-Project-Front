@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidators } from '../custom-validators/password.validator';
+import { IUser } from '../interfaces/user';
+import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,17 +12,13 @@ import { PasswordValidators } from '../custom-validators/password.validator';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
   profileForm: FormGroup;
 
-  userData = {
-    name: 'Ahmed',
-    email: 'ahmed@email.com',
-    address: 'Cairo, Egypt',
-    phone: '01117151375'
-  }
+  userData!:IUser; 
+  userId!:string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private _userS:UserService, private _authS:AuthService, private fb: FormBuilder) {
     this.profileForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: [{ value: '', disabled: true }, [Validators.required, Validators.email]],
@@ -42,6 +41,11 @@ export class ProfileComponent {
   }
 
   ngOnInit(): void {
+    this.userId = this._authS.decodeToken().userId;
+    this._userS.getUser(this.userId).subscribe( data => {
+       this.userData = data;
+       console.log(this.userData);
+    })
     this.profileForm.patchValue(this.userData);
   }
 

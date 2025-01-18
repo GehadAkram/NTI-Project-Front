@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../interfaces/iproduct';
+import { IProduct } from '../interfaces/product';
 import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,28 +11,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit{
-  product = {
-    id: '1', 
-    name: 'Product 1', 
-    description: 'This is a sample product description.',
-    price: 500, 
-    image: 'product1.png',
-    category: 'Electronics',
-    supercategory: 'Gadgets',
-    quantity: 10,
-    inStock: true,
-    bestSeller: true
-  };
+  product!:IProduct;
 
     productId!: string;
+    staticUrl ='';
   
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute, private _productS:ProductsService) { }
   
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
         this.productId = params.get('id')!;
-        // Fetch product details using this.productId
       });
+      this._productS.getProductById(this.productId).subscribe(data=> {
+        this.product=data;
+      });
+      this.staticUrl=this._productS.staticFilesUrl;
     }
-
 }

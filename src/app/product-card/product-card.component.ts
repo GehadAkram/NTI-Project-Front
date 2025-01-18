@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../interfaces/iproduct';
+import { IProduct } from '../interfaces/product';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProductCardComponent {
   @Input() product!: IProduct;
+  @Input() staticUrl!: string;
 
   addToWishlist(productId: string) {
     // Add product to wishlist

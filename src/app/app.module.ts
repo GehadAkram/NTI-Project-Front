@@ -25,6 +25,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { OrderHisoryComponent } from './order-hisory/order-hisory.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
