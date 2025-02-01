@@ -12,7 +12,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { OrderHisoryComponent } from './order-hisory/order-hisory.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
