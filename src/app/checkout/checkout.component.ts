@@ -30,17 +30,8 @@ export class CheckoutComponent {
           price: 13.5,
           image: 'product2.png',
         },
-        quantity: 1,
-      },
-      {
-        product: {
-          id: '3',
-          name: 'Product 3',
-          price: 199.99,
-          image: 'product3.png',
-        },
-        quantity: 1,
-      },
+        quantity: 2,
+      }
     ],
     total: 100,
     state: '67864b3921f4118a4da25e7e',

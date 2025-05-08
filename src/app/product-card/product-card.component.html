@@ -2,7 +2,7 @@
   <img [src]="staticUrl+product.image" class="card-img-top" [alt]="product.name" 
   style="height: 300px; object-fit: contain;" (click)="viewProductDetails(product._id)">
   <div class="card-body text-center">
-    <h5 class="card-title">{{ product.name }}</h5>
+    <h5 class="card-title text-capitalize">{{ product.name }}</h5>
     <p class="card-text">{{ product.price | currency }}</p>
     <button (click)="viewProductDetails(product._id)" class="btn btn-primary ms-0">View Details</button>
     <button (click)="addToCart(product._id)" href="#" class="btn btn-primary me-0">Add to Cart</button>

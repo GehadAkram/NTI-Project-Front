@@ -23,12 +23,6 @@ export class WishlistComponent {
       name: 'Product 2',
       price: 49.99,
       img: 'product2.png'
-    },
-    {
-      id: '3',
-      name: 'Product 3',
-      price: 19.99,
-      img: 'product3.png'
     }
   ]
 

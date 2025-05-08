@@ -1,11 +1,15 @@
+import { IOrderState } from "./order-state";
+import { IProduct } from "./product";
+import { IUser } from "./user";
+
 export interface IOrder {
-  user: string;
+  user: IUser;
   products: {
-    product: string;
+    product: IProduct;
     quantity: number;
   }[];
   total: number;
-  state: string;
+  state: IOrderState;
   shippingAddresss: string;
   createdAt?: Date;
   updatedAt?: Date;

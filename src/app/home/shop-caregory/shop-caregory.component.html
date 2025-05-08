@@ -7,26 +7,19 @@
       </div>
     </div>
     <div class="row align-items-center">
+      @for (superCat of supercategories; track $index) {
       <div class="col-6 text-center position-relative">
-        <div class="bg-image position-relative" style="background-image: url('istockphoto-1214561965-612x612.jpg');">
-            <div class="overlay d-flex flex-column justify-content-center align-items-center h-100">
-                <h3 class="mt-3 text-white">Men's Fashion</h3>
-                <p class="text-white">Find the perfect outfit for any occasion. Shop our latest trends and styles.</p>
-                <a href="#" class="btn btn-primary">Shop for Men</a>
-            </div>
-            <div class="dark-overlay"></div>
-        </div>
-    </div>
-      <div class="col-6 text-center position-relative">
-        <div class="bg-image position-relative" style="background-image: url('istockphoto-1446098147-612x612.jpg');">
+        <div class="bg-image position-relative" [style.background-image]="'url(' + staticUrl + superCat.image + ')'">
           <div class="overlay d-flex flex-column justify-content-center align-items-center h-100">
-            <h3 class="mt-3 text-white">Women's Fashion</h3>
-            <p class="text-white">Discover the latest in women's fashion. From casual to formal, we have it all.</p>
-            <a href="#" class="btn btn-secondary">Shop for Women</a>
+            <h3 class="mt-3 text-white" style="text-transform: capitalize;">{{superCat.name}}'s Fashion</h3>
+            <p class="text-white"> {{superCat.description}} </p>
+            <a routerLink="/cataloge" class="btn btn-primary">Shop for {{superCat.name}}</a>
           </div>
           <div class="dark-overlay"></div>
         </div>
       </div>
+      }
+
     </div>
 
 
@@ -38,7 +31,7 @@
         <div *ngFor="let category of categories" class="d-inline-block text-center mx-2">
           <a routerLink="/cataloge">
             <img [src]="staticUrl+category.image" class="rounded-circle mb-3 category-image" alt="{{category.name}}">
-            <h5>{{category.name}}</h5>
+            <h5 style="text-transform: capitalize;">{{category.name}}</h5>
           </a>
         </div>
       </div>

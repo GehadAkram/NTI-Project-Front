@@ -23,7 +23,7 @@ const routes: Routes = [
     {path: 'forgot-password', component: ForgotPasswordComponent}
   ]},
   {path: 'signup', component: SignUpComponent},
-  {path: 'wishlist', component: WishlistComponent, canActivate:[AuthGuard]},
+  {path: 'wishlist', component: WishlistComponent}, //, canActivate:[AuthGuard]
   {path: 'cataloge', component: CatalogeComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'profile', component: ProfileComponent},
@@ -33,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
